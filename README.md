@@ -13,3 +13,9 @@ My Attempt at recreating BioFaceNet using PyTorch
   * combine a dichromatic reflectance model and biophysical spectral skin coloring model to make a melanin and hemoglobin maps
   * other factors to consider may be camera sensitivity and spectral illumination
 #### 1.1 Deep Face Appearance Decomposition
+* MoFA- a self-supervised learning approach to train a model-based autoencoder CNN architecture
+  * fits a 3D morphable model to single images
+  * loss is the error between the constructed image and the input
+* InverseFaceNet- estimates 3DMM params inclusing reflectance and illumination
+  * again, uses statistical appearannce model
+* others include unspupervised autoencoder networks (still not realistic), and supervised synthetic -> real (relies on lambertian)
