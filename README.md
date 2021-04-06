@@ -3,6 +3,7 @@ My Attempt at recreating BioFaceNet using PyTorch
 
 ## Some Notes on the Research Paper
 ### Introduction
+**tl;dr: lot's of approaches were made to try reconstructing facial lighting interactions**
 * Many existing generic models that study facial appearance assume faces are lambertian and ignore specular components
 * diffuse albedo is often implemented with a statistical model or with an unconstrained albedo map
   * this might lead to implausible skin colours and not enough non-linearities
@@ -19,3 +20,8 @@ My Attempt at recreating BioFaceNet using PyTorch
 * InverseFaceNet- estimates 3DMM params inclusing reflectance and illumination
   * again, uses statistical appearannce model
 * others include unspupervised autoencoder networks (still not realistic), and supervised synthetic -> real (relies on lambertian)
+#### 1.2 Biophysical skin modelling
+* Various approaches to model the appearance of human skin
+  * Independent Compaonent Analysis (ICA) - restricted to specific light and camera combinations
+  * mutispectral/polarized light to derive skin parameter maps from a 2D planar sample
+  * Biospec- 24 meaningful parameters to simulate the light interaction w/ skin (computationally expensive)
