@@ -27,16 +27,28 @@ My Attempt at recreating BioFaceNet using PyTorch
   * Biospec- 24 meaningful parameters to simulate the light interaction w/ skin (computationally expensive)
 
 ### 2 Preliminaries
+**tl;dr: lot's of background theory- mainly how light, camera, reflection from object interacts into the photo
 * number of assumptions:
   * images are captured by camera that correctly white balances the scene and uses a fixed gamme
   * scene illumination is spectrally uniform -> (essentially no shadows)
   * skin reflectance follows the dichromatic reflectance model
 #### 2.1 Spectral Image Formation
+* The RGB image is formde by the integration over the wavelength of the product of the illumination, reflectance, and camera spectral sensitivity.
 #### 2.2 Wavelength-Discrete Spectral Image Formation
+* We approximate the above equation by discretizing wavelength at D locations
 #### 2.3 Color Transformation Pipeline
+* various transformations to make the photo actually pleasing to the eye:
+  * first transformation divides each channel by the color of light source as recorded by sensor
+  * second transformation converts from the camera-specific color space to the standard XYZ space
+  * finally, gamma correction is applied
 #### 2.4 Multispectral Dichromatic Model
+* scene radiance can be divided into diffuse and specular components
+  * the diffuse part modifies the SPD of light thru absorption, 
+  * the specular part is at the surface, and so no absorption
 #### 2.5 Statistical Camera Model
+* Since the camera spectral sensitivities are low dimensional, using PCA, one can capture 97% of the variance of the data set 
 #### 2.6 Physical Lighting Model
+* using a linear combination of representation of tungsten, fluorescent, and natural light, the lighting was estimated
 
 ### 3 Biophysical spcetral skin model
 
