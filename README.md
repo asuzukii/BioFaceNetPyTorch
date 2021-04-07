@@ -2,7 +2,7 @@
 My Attempt at recreating BioFaceNet using PyTorch
 
 ## Some Notes on the Research Paper
-### Introduction
+### 1 Introduction
 **tl;dr: lot's of approaches were made to try reconstructing facial lighting interactions**
 * Many existing generic models that study facial appearance assume faces are lambertian and ignore specular components
 * diffuse albedo is often implemented with a statistical model or with an unconstrained albedo map
@@ -25,3 +25,28 @@ My Attempt at recreating BioFaceNet using PyTorch
   * Independent Compaonent Analysis (ICA) - restricted to specific light and camera combinations
   * mutispectral/polarized light to derive skin parameter maps from a 2D planar sample
   * Biospec- 24 meaningful parameters to simulate the light interaction w/ skin (computationally expensive)
+
+### 2 Preliminaries
+* number of assumptions:
+  * images are captured by camera that correctly white balances the scene and uses a fixed gamme
+  * scene illumination is spectrally uniform -> (essentially no shadows)
+  * skin reflectance follows the dichromatic reflectance model
+#### 2.1 Spectral Image Formation
+#### 2.2 Wavelength-Discrete Spectral Image Formation
+#### 2.3 Color Transformation Pipeline
+#### 2.4 Multispectral Dichromatic Model
+#### 2.5 Statistical Camera Model
+#### 2.6 Physical Lighting Model
+
+### 3 Biophysical spcetral skin model
+
+### 4 Architecture
+#### 4.1 Trainable Encoder
+#### 4.2 Model-based Decoder
+#### 4.3 Losses
+
+### 5 Experiments
+
+### 6 Conclusion
+* Restricting reflectance helps break SOTA which was the inverse rendering method
+* obvious extension - to combine this work with methods that estimate 3D face geometry
