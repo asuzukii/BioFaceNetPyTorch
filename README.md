@@ -27,7 +27,7 @@ My Attempt at recreating BioFaceNet using PyTorch
   * Biospec- 24 meaningful parameters to simulate the light interaction w/ skin (computationally expensive)
 
 ### 2 Preliminaries
-**tl;dr: lot's of background theory- mainly how light, camera, reflection from object interacts into the photo
+**tl;dr: lot's of background theory- mainly how light, camera, reflection from object interacts into the photo**
 * number of assumptions:
   * images are captured by camera that correctly white balances the scene and uses a fixed gamme
   * scene illumination is spectrally uniform -> (essentially no shadows)
@@ -51,13 +51,32 @@ My Attempt at recreating BioFaceNet using PyTorch
 * using a linear combination of representation of tungsten, fluorescent, and natural light, the lighting was estimated
 
 ### 3 Biophysical spcetral skin model
-
+* 2 free biophysical params
+* A 2-layer skin model was applied 
+  * the epidermis (outer skin) is modelled so that everything but blue light is mainly forward scattered
+  * the dermis (inner skin) is supposed to contain the blood vessels, and it absorbs blue/green wavelengths
+  
 ### 4 Architecture
+* at the most abstract, the trainable encoder estimates a semantically meaningful parameters and a fixed decoder that implements these back into an image.
+* 4 image quantities: hemoglobin, melanin, difuse, specular maps
 #### 4.1 Trainable Encoder
+* encoder itself has both a encoder/decoder
+* invert the gamma first for heuristic improvement
+* seperate decoder for each parameter
+* positivity constraints -> use of softmax/sigmoid to bound it to a range
 #### 4.2 Model-based Decoder
+* all components implemented in a differentiable manner, so that the gradients can be backpropagated all the way back to the encoder
+* various lookup tables to streamline the decoding process
 #### 4.3 Losses
-
+* 4 losses to keep track of
+  * RMSE of produced image vs. actual
+  * L2 camera sensitivity param regularization loss
+  * L1 specular reflections regularization loss
+  * L2 diffuse shading loss
+  
 ### 5 Experiments
+* use the CelebA Dataset
+* some reconstruction, editing applications
 
 ### 6 Conclusion
 * Restricting reflectance helps break SOTA which was the inverse rendering method
