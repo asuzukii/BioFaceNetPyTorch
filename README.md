@@ -4,7 +4,7 @@ My Attempt at recreating BioFaceNet using PyTorch
 # Table of Contents
 - [Introduction](#heading)
 - [My Procedures](#heading)
- * [Preparation](#sub-heading)
+    - [Preparation](#sub-heading)
 
 # Introduction
 Hello- this is my attempt at recreating the BioFaceNet in PyTorch.
