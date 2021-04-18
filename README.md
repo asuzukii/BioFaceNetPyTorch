@@ -6,7 +6,7 @@ My Attempt at recreating BioFaceNet using PyTorch
 - [Procedure Steps I took](#heading)
     - [Getting to Know the Paper](#sub-heading)
     - [Data Preparation](#sub-heading)
-- [Conclusion]
+- [Conclusion](#heading)
 
 # Introduction
 Hello- this is my attempt at recreating the BioFaceNet in PyTorch.
@@ -25,6 +25,12 @@ Then, I attempted to run the model given in matlab. However, I couldn't get it t
 
 These masked images were then split into various maps with this paper.
 
+# Conclusion
+
+Some improvements that could be done for this assessment was:
+* to have actual concrete ground truths as opposed to pseudo-ground truths shadowing, normals, etc.
+>* this could be possibly done by artificial faces using applications like blender?
+* celebA imdb dataset is massively biased towards people with paler skin tones. Diversifying the dataset might lead to better results.
 
 
 
