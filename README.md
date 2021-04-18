@@ -31,6 +31,7 @@ Some improvements that could be done for this assessment was:
 * to have actual concrete ground truths as opposed to pseudo-ground truths shadowing, normals, etc.
     * this could be possibly done by artificial faces using applications like blender?
 * celebA imdb dataset is massively biased towards people with paler skin tones. Diversifying the dataset might lead to better results.
+* use adam instead of traditional SGD
 
 
 
